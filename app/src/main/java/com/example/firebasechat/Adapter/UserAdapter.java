@@ -1,6 +1,7 @@
 package com.example.firebasechat.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.firebasechat.MessageActivity;
 import com.example.firebasechat.Model.Users;
 import com.example.firebasechat.R;
 
@@ -37,10 +39,19 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        Users userInst = users.get(position);
+        final Users userInst = users.get(position);
         holder.username.setText(userInst.getUsername());
 
         holder.imageView.setImageResource(R.mipmap.ic_launcher);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(context, MessageActivity.class);
+                i.putExtra("userid", userInst.getId());
+                context.startActivity(i);
+            }
+        });
     }
 
     @Override
