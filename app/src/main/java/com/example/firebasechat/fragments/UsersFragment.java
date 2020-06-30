@@ -32,7 +32,7 @@ public class UsersFragment extends Fragment {
 
     private RecyclerView recyclerView;
 
-    private UserAdapter userAdapter;
+     private UserAdapter userAdapter;
     private List<Users> users;
 
     public UsersFragment() {
@@ -73,9 +73,9 @@ public class UsersFragment extends Fragment {
                     Users user = snapshot.getValue(Users.class);
 
                     assert user != null;
-                    if(!user.getId().equals(firebaseUser.getUid())){
+               if(!user.getId().equals(firebaseUser.getUid())){
                         users.add(user);
-                    }
+                  }
 
                     userAdapter = new UserAdapter(getContext(), users);
                     recyclerView.setAdapter(userAdapter);

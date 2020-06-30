@@ -69,14 +69,14 @@ public class MainActivity extends AppCompatActivity {
         tabLoyout.setupWithViewPager(viewPager);
     }
 
-    //Logout
+   // Logout
 
 
-    //@Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        getMenuInflater().inflate(R.menu.menu, menu);
-//        return true;
-//    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
